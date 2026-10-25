@@ -15,7 +15,6 @@ function even() {
     for(let i = 1; i <= 10; i++)
     {
         arr.push(i * 2)
-        
     }
     return arr
 }
@@ -50,7 +49,9 @@ function recSumTo(n) {
 function factorial(n) {
     if(n === 0 || n === 1)
         return 1
+
     let fact = 2;
+
     for (let i = 3; i <= n; i++) {
         fact *= i;
     }
@@ -126,13 +127,13 @@ function getOperationFn(initialValue, operatorFn) {
  * console.log(generator()); // 9
  */
 function sequence(start, step) {
-    const currentStart = start === undefined ? 0 : start;
-    const currentStep = step === undefined ? 1 : step;
+    let currentStart = start === undefined ? 0 : start;
+    let currentStep = step === undefined ? 1 : step;
 
     let currentValue = currentStart;
 
     return function generator() {
-        const result = currentValue;
+        let result = currentValue;
         currentValue += currentStep;
         return result;
     };
@@ -196,7 +197,7 @@ function deepEqual(firstObject, secondObject) {
     if (keysFirst.length !== keysSecond.length) 
         return false;
 
-    for (const key of keysFirst) {
+    for (let key of keysFirst) {
         if (!Object.prototype.hasOwnProperty.call(secondObject, key)) 
             return false;
         
