@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Запись в экспедицию</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+    <header class="header">
+        <h1 class="header__title">Космическая экспедиция</h1>
+        <nav class="nav">
+            <a class="nav__link" href="index.html">Главная</a>
+            <a class="nav__link" href="galaxies.html">Галактики</a>
+            <a class="nav__link" href="blackholes.html">Черные дыры</a>
+            <a class="nav__link nav__link_active" href="form.html">Экспедиция</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="content-box content-box_size_narrow">
+            <h2 class="content-box__title">Регистрация кандидата</h2>
+            <p class="content-box__text">Заполните анкету для отправки данных в центр управления полетами.</p>
+
+            <form class="form content-box__form" id="expedition-form" action="#" method="post">
+                <div class="form__group">
+                    <label class="form__label" for="callsign">Позывной (логин)</label>
+                    <input class="form__input" type="text" id="callsign" name="callsign" placeholder="Например: StarExplorer" maxlength="50" required>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="email">Электронная почта</label>
+                    <input class="form__input" type="email" id="email" name="email" placeholder="pilot@cosmos.ru" required>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="access-code">Секретный код доступа (пароль)</label>
+                    <input class="form__input" type="password" id="access-code" name="accessCode" placeholder="Минимум 6 символов" minlength="6" required>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="destination">Целевой сектор миссии</label>
+                    <select class="form__select" id="destination" name="destination">
+                        <option value="Галактика Андромеда (M31)">Галактика Андромеда (M31)</option>
+                        <option value="Галактика Треугольника (M33)">Галактика Треугольника (M33)</option>
+                        <option value="Орбита Стрельца А*">Орбита Стрельца А*</option>
+                        <option value="Квазар TON 618">Квазар TON 618</option>
+                    </select>
+                </div>
+
+                <div class="form__group form__group_layout_inline">
+                    <input class="form__checkbox" type="checkbox" id="consent" name="consent" required>
+                    <label class="form__label" for="consent">Согласен на обработку персональных данных</label>
+                </div>
+
+                <button class="form__submit" type="submit">Отправить данные на сервер</button>
+
+                <div class="form__status" id="form-status"></div>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
