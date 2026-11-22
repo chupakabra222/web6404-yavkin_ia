@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Галактики</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+    <header class="header">
+        <h1 class="header__title">Галактики Вселенной</h1>
+        <nav class="nav">
+            <a class="nav__link" href="index.html">Главная</a>
+            <a class="nav__link nav__link_active" href="galaxies.html">Галактики</a>
+            <a class="nav__link" href="blackholes.html">Черные дыры</a>
+            <a class="nav__link" href="form.html">Экспедиция</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="content-box">
+            <h2 class="content-box__title">Популярные галактики</h2>
+            <p class="content-box__text">Во Вселенной существуют миллиарды галактик. Ниже приведена сравнительная таблица и каталог ближайших спиральных систем:</p>
+
+            <table class="table content-box__table">
+                <caption class="table__caption">Сравнение галактик</caption>
+                <thead>
+                    <tr>
+                        <th class="table__cell table__cell_role_head table__cell_align_left">Название</th>
+                        <th class="table__cell table__cell_role_head table__cell_align_center">Тип</th>
+                        <th class="table__cell table__cell_role_head table__cell_align_right">Расстояние (св. лет)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="table__cell table__cell_align_left">Млечный Путь</td>
+                        <td class="table__cell table__cell_align_center">Спиральная</td>
+                        <td class="table__cell table__cell_align_right">0 (Наш дом)</td>
+                    </tr>
+                    <tr>
+                        <td class="table__cell table__cell_align_left">Андромеда (M31)</td>
+                        <td class="table__cell table__cell_align_center">Спиральная</td>
+                        <td class="table__cell table__cell_align_right">2.5 миллиона</td>
+                    </tr>
+                    <tr>
+                        <td class="table__cell table__cell_align_left">Треугольник (M33)</td>
+                        <td class="table__cell table__cell_align_center">Спиральная</td>
+                        <td class="table__cell table__cell_align_right">2.7 миллиона</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="galaxy-grid content-box__grid">
+                <article class="galaxy-card">
+                    <h3 class="galaxy-card__title">Галактика Млечный Путь</h3>
+                    <img class="galaxy-card__img" src="https://racurs.ua/content/images/Publication/News/15/61/19/content/milky_way_0.jpg" alt="Млечный путь">
+                    <p class="galaxy-card__desc">Наша родная галактика с перемычкой, содержащая от 200 до 400 миллиардов звезд.</p>
+                </article>
+
+                <article class="galaxy-card">
+                    <h3 class="galaxy-card__title">Галактика Андромеда</h3>
+                    <img class="galaxy-card__img" src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=800&q=80" alt="Андромеда">
+                    <p class="galaxy-card__desc">Крупнейшая галактика Местной группы, движущаяся навстречу Млечному Пути.</p>
+                </article>
+
+                <article class="galaxy-card">
+                    <h3 class="galaxy-card__title">Галактика Треугольника</h3>
+                    <img class="galaxy-card__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCLydo1xqWovnfvs_U1nV8TIQ15kQkeE-1IkdbhHGV4mu3wk10uSU0gouI9c-43iPIimgXCzLsLp0NQ3WRjjjwZ25v2wPpNQe89n7PQw&s=10" alt="M33">
+                    <p class="galaxy-card__desc">Третья по величине галактика нашей группы с активным звездообразованием.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

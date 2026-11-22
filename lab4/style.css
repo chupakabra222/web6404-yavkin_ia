@@ -1,0 +1,479 @@
+:root {
+    --color-bg-page: #0b0f19;
+    --color-bg-header: #1a202c;
+    --color-bg-card: #161e2e;
+    --color-bg-card-inner: #1e293b;
+    --color-bg-input: #0f172a;
+    --color-bg-table-head: #2d3748;
+    --color-text-primary: #e2e8f0;
+    --color-text-secondary: #94a3b8;
+    --color-text-highlight: #edf2f7;
+    --color-text-inverse: #0b0f19;
+    --color-accent: #63b3ed;
+    --color-accent-hover: #90cdf4;
+    --color-accent-glow: rgba(99, 179, 237, 0.45);
+    --color-orbit-ring: rgba(99, 179, 237, 0.25);
+    --color-star-core: #f6e05e;
+    --color-star-glow: rgba(246, 224, 94, 0.6);
+    --color-planet: #63b3ed;
+    --color-border: #2d3748;
+    --color-shadow: rgba(0, 0, 0, 0.35);
+    --color-success-bg: rgba(72, 187, 120, 0.15);
+    --color-success-border: #48bb78;
+    --color-success-text: #9ae6b4;
+    --color-error-bg: rgba(245, 101, 101, 0.15);
+    --color-error-border: #f56565;
+    --color-error-text: #feb2b2;
+}
+
+.page {
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: var(--color-bg-header);
+    padding: 20px 30px;
+    border-bottom: 2px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.header__title {
+    margin: 0;
+    color: var(--color-text-highlight);
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav__link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav__link:hover {
+    text-decoration: underline;
+    color: var(--color-accent-hover);
+}
+
+.nav__link_active {
+    color: var(--color-text-highlight);
+    background-color: var(--color-bg-table-head);
+}
+
+.main {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.content-box {
+    background-color: var(--color-bg-card);
+    padding: 28px;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 4px 10px var(--color-shadow);
+    box-sizing: border-box;
+}
+
+.content-box_size_narrow {
+    max-width: 600px;
+}
+
+.content-box__title {
+    margin: 0 0 14px 0;
+    color: var(--color-text-highlight);
+}
+
+.content-box__text {
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+}
+
+.content-box__text_highlighted {
+    border-left: 4px solid var(--color-accent);
+    padding: 10px 12px;
+    color: var(--color-text-highlight);
+    background-color: var(--color-bg-card-inner);
+    border-radius: 0 6px 6px 0;
+}
+
+.content-box__hero {
+    margin-bottom: 24px;
+}
+
+.content-box__features {
+    margin: 24px 0;
+}
+
+.content-box__image {
+    margin-top: 20px;
+}
+
+.content-box__table {
+    margin-top: 20px;
+}
+
+.content-box__grid {
+    margin-top: 30px;
+}
+
+.content-box__list {
+    margin-top: 20px;
+}
+
+.content-box__form {
+    margin-top: 20px;
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.hero__info {
+    flex: 1 1 320px;
+}
+
+.hero__visual {
+    flex: 0 0 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-system {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-system__star {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--color-star-core);
+    box-shadow: 0 0 24px 8px var(--color-star-glow);
+    animation: star-pulse 3s ease-in-out infinite;
+}
+
+.orbit-system__track {
+    position: absolute;
+    border: 1.5px dashed var(--color-orbit-ring);
+    border-radius: 50%;
+}
+
+.orbit-system__track_pos_inner {
+    width: 110px;
+    height: 110px;
+    animation: orbit-rotate 7s linear infinite;
+}
+
+.orbit-system__track_pos_outer {
+    width: 174px;
+    height: 174px;
+    animation: orbit-rotate 14s linear infinite reverse;
+}
+
+.orbit-system__planet {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-planet);
+    box-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+.orbit-system__planet_size_s {
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent-hover);
+}
+
+@keyframes orbit-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes star-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px 6px var(--color-star-glow);
+    }
+    50% {
+        transform: scale(1.15);
+        box-shadow: 0 0 32px 12px var(--color-star-glow);
+    }
+}
+
+.feature-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.feature-flex__card {
+    flex: 1 1 220px;
+    background-color: var(--color-bg-card-inner);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature-flex__title {
+    margin: 0 0 8px 0;
+    color: var(--color-accent);
+    font-size: 1.1rem;
+}
+
+.feature-flex__desc {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.blackhole-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.blackhole-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    background-color: var(--color-bg-card-inner);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.blackhole-card__content {
+    flex: 1 1 300px;
+}
+
+.blackhole-card__title {
+    margin: 0 0 12px 0;
+    color: var(--color-accent-hover);
+}
+
+.blackhole-card__media {
+    flex: 1 1 260px;
+    display: flex;
+    justify-content: center;
+}
+
+.blackhole-card__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-container__img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table__caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--color-text-highlight);
+}
+
+.table__cell {
+    padding: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.table__cell_role_head {
+    background-color: var(--color-bg-table-head);
+    color: var(--color-text-highlight);
+}
+
+.table__cell_align_left {
+    text-align: left;
+}
+
+.table__cell_align_center {
+    text-align: center;
+}
+
+.table__cell_align_right {
+    text-align: right;
+}
+
+.galaxy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.galaxy-card {
+    background-color: var(--color-bg-card-inner);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px;
+    display: grid;
+    grid-template-rows: auto 180px auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.galaxy-card__title {
+    margin: 0;
+    text-align: center;
+    color: var(--color-accent-hover);
+}
+
+.galaxy-card__img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.galaxy-card__desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form__group_layout_inline {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.form__label {
+    font-weight: bold;
+    color: var(--color-text-highlight);
+    font-size: 0.95rem;
+}
+
+.form__input,
+.form__select {
+    background-color: var(--color-bg-input);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form__input:focus,
+.form__select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px var(--color-accent-glow);
+}
+
+.form__checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+}
+
+.form__submit {
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.form__submit:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.form__submit:active {
+    transform: scale(0.99);
+}
+
+.form__status {
+    display: none;
+    padding: 12px 16px;
+    border-radius: 6px;
+    background-color: var(--color-success-bg);
+    border: 1px solid var(--color-success-border);
+    color: var(--color-success-text);
+    font-size: 0.95rem;
+}
+
+.form__status_visible {
+    display: block;
+}
+
+.form__status_state_error {
+    background-color: var(--color-error-bg);
+    border-color: var(--color-error-border);
+    color: var(--color-error-text);
+}
