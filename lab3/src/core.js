@@ -3,13 +3,8 @@
  * @param {*} n
  */
 function isInteger(n) {
-    if (typeof n !== 'number') 
-        return false;
-    if (n !== n) 
-        return false;
-    if (n === Infinity || n === -Infinity) 
-        return false;
-    return (n | 0) === n;
+    let intPart = n | 0;
+    return intPart === n;
 }
 
 /**
@@ -29,25 +24,22 @@ function even() {
  * @param {*} n
  */
 function sumTo(n) {
-    if (typeof n !== 'number' || n !== n) return NaN;
-    if (n < 0) return NaN;
-    let sum = 0;
-    for (let i = 1; i <= n; i++) 
+    let sum = 1;
+    for(let i = 2; i <= n; i++)
+    {
         sum += i;
-    return sum;
+    }
+    return sum
 }
+
 /**
  * Напишите функцию, считающую сумму чисел до заданного используя рекурсию
  * @param {*} n
  */
 function recSumTo(n) {
-    if (typeof n !== 'number' || n !== n) 
-        return NaN;
-    if (n < 0) 
-        return NaN;
-    if (n <= 1) 
-        return n === 1 ? 1 : 0;
-    return n + recSumTo(n - 1);
+    if(n === 1)
+        return n;
+    return n + recSumTo(n-1)
 }
 
 /**
@@ -55,15 +47,14 @@ function recSumTo(n) {
  * @param {*} n
  */
 function factorial(n) {
-    if (typeof n !== 'number' || n !== n) 
-        return NaN;
-    if (n < 0) 
-        return NaN;
-    if (n === 0 || n === 1) 
-        return 1;
+    if(n === 0 || n === 1)
+        return 1
+
     let fact = 2;
-    for (let i = 3; i <= n; i++) 
+
+    for (let i = 3; i <= n; i++) {
         fact *= i;
+    }
     return fact;
 }
 
@@ -72,9 +63,7 @@ function factorial(n) {
  * @param {*} n
  */
 function isBinary(n) {
-    if (typeof n !== 'number' || n !== n) 
-        return false;
-    return n > 0 && (n & (n - 1)) === 0;
+    return n > 0 && (n & (n - 1)) === 0
 }
 
 /**
@@ -82,19 +71,20 @@ function isBinary(n) {
  * @param {*} n
  */
 function fibonacci(n) {
-    if (typeof n !== 'number' || n !== n) 
-        return NaN;
-    if (n < 0) return NaN;
     if (n === 0 || n === 1) 
         return n;
+
     let prev = 0;
     let curr = 1;
+
     for (let i = 2; i <= n; i++) {
-        const next = prev + curr;
+        let next = prev + curr;
         prev = curr;
         curr = next;
     }
+
     return curr;
+
 }
 
 /** Напишите функцию, которая принимает начальное значение и функцию операции
@@ -109,14 +99,15 @@ function fibonacci(n) {
  * console.log(sumFn(3)) - 18
  */
 function getOperationFn(initialValue, operatorFn) {
-    if (typeof operatorFn !== 'function') {
-        return function () { return initialValue; };
-    }
     let storedValue = initialValue;
+
     return function (newValue) {
+        if (typeof operatorFn !== 'function') 
+            return initialValue;
+        
         storedValue = operatorFn(storedValue, newValue);
         return storedValue;
-    };
+    }
 }
 
 /**
@@ -136,11 +127,14 @@ function getOperationFn(initialValue, operatorFn) {
  * console.log(generator()); // 9
  */
 function sequence(start, step) {
-    let current = start ?? 0;
-    const stepValue = step ?? 1;
+    let currentStart = start === undefined ? 0 : start;
+    let currentStep = step === undefined ? 1 : step;
+
+    let currentValue = currentStart;
+
     return function generator() {
-        const result = current;
-        current += stepValue;
+        let result = currentValue;
+        currentValue += currentStep;
         return result;
     };
 }
